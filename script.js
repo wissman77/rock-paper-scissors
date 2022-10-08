@@ -30,6 +30,44 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-const playerSelection = 'rock';
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function showWinner(playerScore, computerScore) {
+  if (playerScore === computerScore) {
+    return `It's a Tie, Player score: ${playerScore}, Computer score: ${computerScore}`;
+  } else if (playerScore > computerScore) {
+    return `You Win the game, Player score: ${playerScore}, Computer score: ${computerScore}`;
+  } else {
+    return `You Lose the game, Player score: ${playerScore}, Computer score: ${computerScore}`;
+  }
+}
+
+function game() {
+  let computerScore = 0;
+  let playerScore = 0;
+
+  for (let i = 0; i < 5; i++) {
+
+    let playerSelection = prompt('Please choose Rock, Paper or Scissors');
+
+    // Keep asking the player until geting the correct choice
+    while (playerSelection !== rock && playerSelection !== paper && playerSelection !== scissors) {
+      playerSelection = prompt('Please choose Rock, Paper or Scissors');
+    }
+    playerSelection = playerSelection.toLowerCase();
+    const computerSelection = getComputerChoice();
+    const result = playRound(playerSelection, computerSelection);
+
+    if (result.startsWith('You Lose!')) {
+      computerScore += 1;
+    } else if (result.startsWith('You Win!')) {
+      playerScore += 1;
+    }
+
+    console.log(`${result}, player score: ${playerScore}, computer score: ${computerScore}`);
+  }
+
+  // show the global results and winner with scores
+  console.log(showWinner(playerScore, computerScore));
+}
+
+
+game();
