@@ -53,12 +53,13 @@ function game() {
 
   for (let i = 0; i < 5; i++) {
 
-    let playerSelection = prompt('Please choose Rock, Paper or Scissors');
+    let playerSelection = '';
 
     // Keep asking the player until geting the correct choice
-    while (playerSelection !== rock && playerSelection !== paper && playerSelection !== scissors) {
+    do {
       playerSelection = prompt('Please choose Rock, Paper or Scissors');
-    }
+    }while (playerSelection !== rock && playerSelection !== paper && playerSelection !== scissors)
+
     playerSelection = playerSelection.toLowerCase();
     const computerSelection = getComputerChoice();
     const result = playRound(playerSelection, computerSelection);
