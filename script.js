@@ -10,22 +10,30 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  
+
+
   switch(true) {
-    case playerSelection === computerSelection:
+    case playerSelection === computerSelection: {
       return 'It\'s Tie!';
-    case playerSelection === rock && computerSelection === paper:
+    }
+    case playerSelection === rock && computerSelection === paper: {
       return 'You Lose! Paper beats Rock';
-    case playerSelection === rock && computerSelection === scissors:
+    }
+    case playerSelection === rock && computerSelection === scissors: {
       return 'You Win! Rock beats Scissors';
-    case playerSelection === paper && computerSelection === rock:
+    }
+    case playerSelection === paper && computerSelection === rock: {
       return 'You Win! Paper beats Rock';
-    case playerSelection === paper && computerSelection === scissors:
+    }
+    case playerSelection === paper && computerSelection === scissors: {
       return 'You Lose! Scissors beats Paper';
-    case playerSelection === scissors && computerSelection === rock:
+    }
+    case playerSelection === scissors && computerSelection === rock: {
       return 'You Lose! Rock beats Scissors';
-    case playerSelection === scissors && computerSelection === paper:
+    }
+    case playerSelection === scissors && computerSelection === paper: {
       return 'You Win! Scissors beats Paper';
+    }
   }
 }
 
