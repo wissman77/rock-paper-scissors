@@ -2,6 +2,46 @@ const rock = 'rock';
 const paper = 'paper';
 const scissors = 'scissors';
 
+let computerScore = 0;
+let playerScore = 0;
+
+const btns = document.querySelectorAll('button');
+const playerScoreUI = document.querySelector('.player-score');
+const computerScoreUI = document.querySelector('.computer-score');
+const roundResultUI = document.querySelector('.round-result');
+
+for (let button of btns) {
+  button.addEventListener('click', (e) => playGame(e));
+}
+
+
+function playGame(e) {
+  let playerSelection = '';
+
+  if (e.target.className === rock) {
+    playerSelection = rock;
+  } else if (e.target.className === paper) {
+    playerSelection = paper;
+  } else if (e.target.className === scissors) {
+    playerSelection = scissors;
+  }
+
+  const computerSelection = getComputerChoice();
+  const result = playRound(playerSelection, computerSelection);
+
+  roundResultUI.textContent = result;
+
+  if (result.startsWith('You Lose!')) {
+      computerScore += 1;
+  } else if (result.startsWith('You Win!')) {
+      playerScore += 1;
+  }
+
+  playerScoreUI.textContent = playerScore;
+  computerScoreUI.textContent = computerScore;
+
+}
+
 function getComputerChoice() {
   // create array with all game values and return a random value
   const gameValues = [rock, paper, scissors];
@@ -46,36 +86,3 @@ function showWinner(playerScore, computerScore) {
     return `You Lose the game, Player score: ${playerScore}, Computer score: ${computerScore}`;
   }
 }
-
-function game() {
-  let computerScore = 0;
-  let playerScore = 0;
-
-  for (let i = 0; i < 5; i++) {
-
-    let playerSelection = '';
-
-    // Keep asking the player until geting the correct choice
-    do {
-      playerSelection = prompt('Please choose Rock, Paper or Scissors');
-    }while (playerSelection !== rock && playerSelection !== paper && playerSelection !== scissors)
-
-    playerSelection = playerSelection.toLowerCase();
-    const computerSelection = getComputerChoice();
-    const result = playRound(playerSelection, computerSelection);
-
-    if (result.startsWith('You Lose!')) {
-      computerScore += 1;
-    } else if (result.startsWith('You Win!')) {
-      playerScore += 1;
-    }
-
-    console.log(`${result}, player score: ${playerScore}, computer score: ${computerScore}`);
-  }
-
-  // show the global results and winner with scores
-  console.log(showWinner(playerScore, computerScore));
-}
-
-
-game();

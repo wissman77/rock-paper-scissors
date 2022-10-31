@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock Paper Scissors Game</title>
-</head>
-<body>
-  <h1>Open Console using F12</h1>
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors Game</title>
+  </head>
+  <body>
+    <header>
+      <h1>Rock Paper Scissors Game</h1>
+    </header>
+    <main>
+      <div class="buttons">
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissors">Scissors</button>
+      </div>
+      <div class="results">
+        <div class="round-result">Round result:</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Player</th>
+              <th>Computer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="player-score">0</td>
+              <td class="computer-score">0</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="reset-div">
+          <h2>Final Result</h2>
+          <button class="reset">Reset</button>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>
