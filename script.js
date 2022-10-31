@@ -11,10 +11,9 @@ const playerScoreUI = document.querySelector('.player-score');
 const computerScoreUI = document.querySelector('.computer-score');
 const roundResultUI = document.querySelector('.round-result');
 const finalResultUI = document.querySelector('.final-result');
+const resultsUI = document.querySelector('.results');
 
-for (let button of btns) {
-  button.addEventListener('click', (e) => playGame(e));
-}
+InitialGame();
 
 
 function playGame(e) {
@@ -43,6 +42,23 @@ function playGame(e) {
   computerScoreUI.textContent = computerScore;
 
   finalResultUI.textContent = `Final result: ${showWinner(playerScore, computerScore)}`;
+
+  if (finalResultUI) {
+    resultsUI.style.display = 'block';
+  }
+}
+
+function InitialGame() {
+  computerScore = 0;
+  playerScore = 0;
+
+  for (let button of btns) {
+    button.addEventListener('click', (e) => playGame(e));
+  }
+  playerScoreUI.textContent = 0;
+  computerScoreUI.textContent = 0;
+  roundResultUI.textContent = '';
+  finalResultUI.textContent = '';
 }
 
 function getComputerChoice() {
