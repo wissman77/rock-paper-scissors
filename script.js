@@ -78,11 +78,9 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function showWinner(playerScore, computerScore) {
-  if (playerScore === computerScore) {
-    return `It's a Tie, Player score: ${playerScore}, Computer score: ${computerScore}`;
-  } else if (playerScore > computerScore) {
+  if (playerScore === 5) {
     return `You Win the game, Player score: ${playerScore}, Computer score: ${computerScore}`;
-  } else {
+  } else if (computerScore === 5) {
     return `You Lose the game, Player score: ${playerScore}, Computer score: ${computerScore}`;
   }
 }
