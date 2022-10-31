@@ -5,10 +5,12 @@ const scissors = 'scissors';
 let computerScore = 0;
 let playerScore = 0;
 
+// UI elements
 const btns = document.querySelectorAll('button');
 const playerScoreUI = document.querySelector('.player-score');
 const computerScoreUI = document.querySelector('.computer-score');
 const roundResultUI = document.querySelector('.round-result');
+const finalResultUI = document.querySelector('.final-result');
 
 for (let button of btns) {
   button.addEventListener('click', (e) => playGame(e));
@@ -29,7 +31,7 @@ function playGame(e) {
   const computerSelection = getComputerChoice();
   const result = playRound(playerSelection, computerSelection);
 
-  roundResultUI.textContent = result;
+  roundResultUI.textContent = `Round result: ${result}`;
 
   if (result.startsWith('You Lose!')) {
       computerScore += 1;
@@ -40,6 +42,7 @@ function playGame(e) {
   playerScoreUI.textContent = playerScore;
   computerScoreUI.textContent = computerScore;
 
+  finalResultUI.textContent = `Final result: ${showWinner(playerScore, computerScore)}`;
 }
 
 function getComputerChoice() {
@@ -82,5 +85,7 @@ function showWinner(playerScore, computerScore) {
     return `You Win the game, Player score: ${playerScore}, Computer score: ${computerScore}`;
   } else if (computerScore === 5) {
     return `You Lose the game, Player score: ${playerScore}, Computer score: ${computerScore}`;
+  } else {
+    return '';
   }
 }
