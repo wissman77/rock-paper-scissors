@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+  background: #f77373;
+  padding: 30px;
+  text-align: center;
+}
+
+.rock,
+.paper,
+.scissors {
+  font-size: 100px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reset-div {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 10%;
+  left: 30%;
+  background: blue;
+  height: 300px;
+}
+
+.reset {
+  border: 0;
+  background: #f4f4f4;
+  padding: 20px 40px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 20px;
+}

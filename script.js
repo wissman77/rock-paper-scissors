@@ -6,24 +6,29 @@ let computerScore = 0;
 let playerScore = 0;
 
 // UI elements
-const btns = document.querySelectorAll('button');
+const btns = document.querySelectorAll('.buttons i');
 const playerScoreUI = document.querySelector('.player-score');
 const computerScoreUI = document.querySelector('.computer-score');
 const roundResultUI = document.querySelector('.round-result');
 const finalResultUI = document.querySelector('.final-result');
 const resultsUI = document.querySelector('.results');
+const resetDiv = document.querySelector('.reset-div');
+const resetBtn = document.querySelector('.reset');
 
-InitialGame();
+// Reset the game;
+resetBtn.addEventListener('click', initialGame)
+
+initialGame();
 
 
 function playGame(e) {
   let playerSelection = '';
 
-  if (e.target.className === rock) {
+  if (e.target.classList.contains(rock)) {
     playerSelection = rock;
-  } else if (e.target.className === paper) {
+  } else if (e.target.classList.contains(paper)) {
     playerSelection = paper;
-  } else if (e.target.className === scissors) {
+  } else if (e.target.classList.contains(scissors)) {
     playerSelection = scissors;
   }
 
@@ -41,14 +46,17 @@ function playGame(e) {
   playerScoreUI.textContent = playerScore;
   computerScoreUI.textContent = computerScore;
 
-  finalResultUI.textContent = `Final result: ${showWinner(playerScore, computerScore)}`;
+  let finalResult = showWinner(playerScore, computerScore);
+  finalResultUI.textContent = finalResult;
 
-  if (finalResultUI) {
-    resultsUI.style.display = 'block';
+  if (finalResult) {
+    resetDiv.style.display = 'block';
   }
 }
 
-function InitialGame() {
+
+
+function initialGame() {
   computerScore = 0;
   playerScore = 0;
 
@@ -59,6 +67,8 @@ function InitialGame() {
   computerScoreUI.textContent = 0;
   roundResultUI.textContent = '';
   finalResultUI.textContent = '';
+
+  resetDiv.style.display = 'none';
 }
 
 function getComputerChoice() {
