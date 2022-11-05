@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+body {
+  background-color: #f19797;
+}
+
 .container {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -11,13 +15,30 @@
   margin: 0 auto;
   background: #f77373;
   padding: 30px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  color: #f4f4f4;
+}
+
+header h1 {
+  margin-bottom: 100px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .rock,
 .paper,
 .scissors {
   font-size: 100px;
+  margin: 30px;
 }
 
 .buttons {
@@ -26,22 +47,39 @@
   align-items: center;
 }
 
+
+
 .reset-div {
   display: none;
   position: absolute;
   z-index: 1;
-  top: 10%;
-  left: 30%;
-  background: blue;
+  padding: 100px;
+  text-align: center;
+  top: 20%;
+  left: auto;
+  background: #f54a4a;
   height: 300px;
+  border-radius: 10px;
 }
 
 .reset {
   border: 0;
-  background: #f4f4f4;
   padding: 20px 40px;
   border-radius: 10px;
   font-weight: bold;
   font-size: 20px;
-  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.round-result {
+  margin: 10px;
+}
+
+table th {
+  padding: 10px;
+  text-decoration: underline;
+}
+
+table td {
+  text-align: center;
 }

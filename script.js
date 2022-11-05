@@ -11,7 +11,6 @@ const playerScoreUI = document.querySelector('.player-score');
 const computerScoreUI = document.querySelector('.computer-score');
 const roundResultUI = document.querySelector('.round-result');
 const finalResultUI = document.querySelector('.final-result');
-const resultsUI = document.querySelector('.results');
 const resetDiv = document.querySelector('.reset-div');
 const resetBtn = document.querySelector('.reset');
 
