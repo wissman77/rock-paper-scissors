@@ -16,8 +16,10 @@ const resetBtn = document.querySelector('.reset');
 
 // Reset the game;
 resetBtn.addEventListener('click', initialGame)
-
-initialGame();
+// add event listeners
+for (let button of btns) {
+    button.addEventListener('click', (e) => playGame(e));
+}
 
 
 function playGame(e) {
@@ -59,9 +61,6 @@ function initialGame() {
   computerScore = 0;
   playerScore = 0;
 
-  for (let button of btns) {
-    button.addEventListener('click', (e) => playGame(e));
-  }
   playerScoreUI.textContent = 0;
   computerScoreUI.textContent = 0;
   roundResultUI.textContent = '';
@@ -107,9 +106,9 @@ function playRound(playerSelection, computerSelection) {
 
 function showWinner(playerScore, computerScore) {
   if (playerScore === 5) {
-    return `You Win the game, Player score: ${playerScore}, Computer score: ${computerScore}`;
+    return `You Win the game, Your score: ${playerScore}, Computer score: ${computerScore}`;
   } else if (computerScore === 5) {
-    return `You Lose the game, Player score: ${playerScore}, Computer score: ${computerScore}`;
+    return `You Lose the game, Your score: ${playerScore}, Computer score: ${computerScore}`;
   } else {
     return '';
   }
